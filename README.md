@@ -1,8 +1,7 @@
 \# Exercici GitHub Actions - AGC
 
 
-
-!\[CI Status](https://github.com/adriagonza/ci-actions-AGC/actions/workflows/ci.yml/badge.svg)
+[![CI AGC](https://github.com/adriagonza/ci-actions-AGC/actions/workflows/ci.yml/badge.svg)](https://github.com/adriagonza/ci-actions-AGC/actions/workflows/ci.yml)
 
 
 
