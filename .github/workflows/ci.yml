@@ -1,0 +1,39 @@
+name: CI AGC
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        php-version: ['8.1', '8.2', '8.3']
+
+    steps:
+      - name: Descarrega el codi
+        uses: actions/checkout@v4
+
+      - name: Prepara PHP ${{ matrix.php-version }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          extensions: mbstring, xml
+          coverage: none
+
+      - name: Instal·la dependències
+        run: composer install --no-progress --prefer-dist
+
+      - name: Executa els tests amb PHPUnit
+        run: ./vendor/bin/phpunit --log-junit resultats.xml
+
+      - name: Puja l'informe de resultats com a artefacte
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: resultats-AGC
+          path: resultats.xml
