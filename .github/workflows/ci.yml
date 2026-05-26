@@ -18,10 +18,10 @@ jobs:
       - name: Descarrega el codi
         uses: actions/checkout@v4
 
-      - name: Prepara PHP ${{ matrix.php-version }}
+      - name: Prepara PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: ${{ matrix.php-version }}
+          php-version: ${{ matrix.matrix.php-version || matrix.php-version }}
           extensions: mbstring, xml
           coverage: none
 

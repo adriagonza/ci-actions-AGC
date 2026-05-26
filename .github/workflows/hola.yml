@@ -1,0 +1,11 @@
+name: Hola Actions AGC
+
+on:
+  workflow_dispatch:
+
+jobs:
+  salutacio:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mostra missatge
+        run: echo "Hola, GitHub Actions! Soc AGC"
