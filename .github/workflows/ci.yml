@@ -21,7 +21,7 @@ jobs:
       - name: Prepara PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: ${{ matrix.matrix.php-version || matrix.php-version }}
+          php-version: ${{ matrix.php-version }}
           extensions: mbstring, xml
           coverage: none
 
